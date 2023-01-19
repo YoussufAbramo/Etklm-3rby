@@ -1,0 +1,52 @@
+/* media query */
+ /* X-Small devices (portrait phones, less than 576px) */
+ /* No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .slider h3{
+        width: 200px;
+        font-size: 30px;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .slider h3{
+        width: 400px;
+        font-size: 52px;
+    }
+ }
+
+ @media (max-width: 992px){
+     .icons ul li{
+        width: 60px ;
+        height: 60px;
+        background-color: #e4e4e4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+ }
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .navbar-nav .dropdown ul{
+        z-index: 30;
+        top: 100px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 500ms ease;
+    }
+    .dropdown:hover ul{
+        visibility: visible;
+        opacity: 1;
+        top: 45px;
+    }
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {  }
