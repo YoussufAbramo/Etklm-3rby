@@ -1,8 +1,8 @@
 var obj_api = [];
+var food_recipe = [];
 
 function get_category(category){
   const xhr = new XMLHttpRequest();
-  // xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=" + category);
   xhr.open("GET", `https://forkify-api.herokuapp.com/api/search?q=${category}`);
   xhr.send();
 
@@ -16,6 +16,7 @@ function get_category(category){
     }
   });
 };
+
 get_category("Mushrooms");
 var nav_links = document.querySelectorAll(".nav-item .nav-link");
 for(var i = 0; i < nav_links.length; i++)
@@ -30,11 +31,6 @@ for(var i = 0; i < nav_links.length; i++)
     )
   };
 
-
-// const xhr = new XMLHttpRequest();
-// xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=pizza");
-// xhr.send();
-
 function print_api() {
   var api_content = ``;
   for (var i = 0; i < 4; i++)
@@ -47,92 +43,13 @@ function print_api() {
         <a class="text-decoration-none" href="${obj_api.recipes[i].publisher_url}" target="_blank">${obj_api.recipes[i].publisher}</a>
       </div>
       <div class="actions d-flex justify-content-between mt-2">
-        <a href="https://forkify-api.herokuapp.com/api/get?rId=${obj_api.recipes[i].recipe_id}" class="btn btn-primary" target="_blank">Recipe?</a>
+        <a class="btn btn-primary btn_recipe" target="_blank">Recipe?</a>
         <a href="${obj_api.recipes[i].source_url}" class="btn btn-dark" target="_blank">Read More</a>
       </div>
     </div>
     `
+    food_recipe.push(`https://forkify-api.herokuapp.com/api/get?rId=${obj_api.recipes[i].recipe_id}`);
   }
+  console.log(food_recipe);
   document.getElementById("content").innerHTML = api_content;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const xhr = new XMLHttpRequest();
-// xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=pizza");
-// xhr.send();
-
-// var api_obj = [];
-// xhr.addEventListener("readystatechange", function () {
-// 	if (this.readyState === this.DONE) {
-// 		console.log(JSON.parse(xhr.response));
-//     api_obj = JSON.parse(xhr.response);
-//     print_api();
-// 	}
-// });
-
-// function print_api() {
-//   var api_div = ``;
-//   for (var i = 0; i < 4; i++) {
-//     api_div += `
-//     <div id="2">
-
-//     </div>
-//         `;
-//         console.log(api_div)
-//   }
-//   document.getElementById("content").innerHTML = api_div;
-// }
+};

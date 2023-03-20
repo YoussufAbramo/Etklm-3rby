@@ -22,3 +22,11 @@
 .nav-link:hover {
   cursor: pointer;
 }
+
+.language {
+  filter: invert(0.50);
+  width: 80%;
+}
+.language:hover {
+  filter: invert(0.75)
+}
